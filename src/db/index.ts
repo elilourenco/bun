@@ -5,5 +5,5 @@ import  * as  schema from "./schema"
 const conectionString= process.env.DATABASE_URL || "postgres://user:password@localhost:5432/social_media";
 
 
-const client = postgres(conectionString);
+ export const client = postgres(conectionString, {  max: 1});
  export  const db = drizzle(client, {schema})
