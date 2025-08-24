@@ -1,13 +1,11 @@
-import type { Config}  from "drizzle-kit"
+import { defineConfig } from "drizzle-kit";
+
+export default defineConfig({
+  dialect: "postgresql",
+  schema: "./src/db/schema.ts",
+  out: "./drizzle",
+});
 
 
-export default{
-    schema:"./src/db/schema.ts",
-    out:"./drizzle",
-    driver:"postgresql",
-    dbCredentials:{
-        conetionString: process.env.DATABASE_URL || "postgresql://postgres:prostgres@localhost: 5432/social_scraper",
 
-    },
-    
-} satisfies Config;
+
