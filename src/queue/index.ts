@@ -25,6 +25,9 @@ export function createMediaWorker(){
         const {mediaId, postId,mediaUrl} = job.data;
          console.log(`processando midia ${mediaId} do post ${postId}`);
 
+         return {success: true , mediaId};
 
-    })
+
+
+    }, {connection})
 } 
