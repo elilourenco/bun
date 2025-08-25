@@ -1,8 +1,8 @@
 import { Elysia } from 'elysia';
 import { swagger } from '@elysiajs/swagger';
-import { postsRoutes } from '../src/routes/posts';
-import { ScraperService } from './services/scraper';
-import { createMediaProcessorWorker } from './workers/mediaworkers';
+import { postsRoutes } from './src/routes/posts';
+import { ScraperService } from './src/services/scraper';
+import { createMediaProcessorWorker } from './src/workers/mediaworkers';
 
 const app = new Elysia()
   .use(swagger())
@@ -13,9 +13,9 @@ const app = new Elysia()
     await scraper.scrapeActiveCampaigns();
     return { message: 'Scraping iniciado' };
   })
-  .listen(3000);
+  .listen(3001);
 
 // Iniciar worker
 const mediaWorker = createMediaProcessorWorker();
 
-console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
+console.log(` Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
